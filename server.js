@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 app.use(cors({ origin: "*" }));
-
+ 
 app.use(bodyParser.json());
 connectDataBase();
 app.use("/api", router);
