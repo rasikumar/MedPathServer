@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fcountry\u002F[country]","\u002Fcountry\u002F[country]\u002F[university]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
