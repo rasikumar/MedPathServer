@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 connectDataBase();
 app.use("/api", router);
 
-app.use(express.static(path.join(__dirname, "out")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "out", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "out")));
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "out", "index.html"));
+// });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
