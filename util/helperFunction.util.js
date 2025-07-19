@@ -20,8 +20,8 @@ export function checkUserConflict(existingUser, formData) {
   ) {
     return { error: "Both email and mobile number are already in use." };
   } else if (existingUser.email === formData.email) {
-    return { error: "Email is already in use." };
+    return { error: "Email is already in registered." };
   } else {
-    return { error: "Mobile number is already in use." };
+    return { error: "Mobile number is already in registered." };
   }
 }
