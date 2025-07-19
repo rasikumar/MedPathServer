@@ -1,10 +1,23 @@
 import transporter from "../config/EMAILConfig.js";
 import { UniversityForm } from "../model/University.js";
-import { renderTemplate } from "../util/template.util.js";
+import {
+  checkUserConflict,
+  renderTemplate,
+} from "../util/helperFunction.util.js";
 
 export const handleUniversityForm = async (req, res) => {
   const formData = req.body;
   try {
+    const existingUser = await UniversityForm.findOne({
+      $or: [{ email: formData.email }, { mobile: formData.mobile }],
+    });
+
+    if (existingUser) {
+      const conflict = checkUserConflict(existingUser, formData);
+      if (conflict) {
+        return res.status(400).json(conflict);
+      }
+    }
     await UniversityForm.create(formData);
 
     const userEmail = formData.email;
